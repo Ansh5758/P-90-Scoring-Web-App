@@ -70,12 +70,6 @@
         function check(){
             document.getElementById('P1score').innerHTML = score1;
             document.getElementById('P2score').innerHTML = score2;
-            if (score1 < 10){
-                document.getElementById('P1score').innerHTML = '0' + score1;
-            }
-            if (score2 < 10){
-                document.getElementById('P2score').innerHTML = '0' + score2;
-            }
             if (score1 > score2){
                 alert('Player 1 Won!');
             } else if (score1 < score2){
