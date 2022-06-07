@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoring Web App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(120 215 255 / 70%);
+        }
+        #div1{
+            margin-top: 10px;
+            display: inline-block;
+            margin-right: 7.5px;
+            margin-left: 7.5px;
+            float: none;
+            background-color: rgb(255 120 120 / 80%);
+            border-radius: 10px;
+            border: 2.5px solid black;
+        }
+        #div2{
+            margin-top: 10px;
+            display: inline-block;
+            margin-left: 7.5px;
+            margin-right: 7.5px;
+            float: none;
+            background-color: rgb(255 120 120 / 80%);
+            border-radius: 10px;
+            border: 2.5px solid black;
+        }
+        #button{
+            float: none;
+            margin-top: 7.5px;
+        }
+        #P1score{
+            font-weight: 900;
+        }
+        #P2score{
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 class="text-danger"><u>Game Result</u></h1>
+        <div class="col-lg-2 col-md-3 col-sm-5 col-xs-7" id="div1">
+            <h2 class="text-primary"><u>Player 1</u></h2>
+            <h2 class="text-primary" id="P1score"></h2>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-5 col-xs-7" id="div2">
+            <h2 class="text-primary"><u>Player 2</u></h2>
+            <h2 class="text-primary" id="P2score"></h2>
+        </div>
+        <br>
+        <br>
+        <button class="col-lg-3 col-md-4 col-sm-5 col-xs-7 btn btn-danger" id="button" onclick="check()" title="Kindly click the button to check the score.">Check</button>
+        <br>
+        <button class="col-lg-3 col-md-4 col-sm-5 col-xs-7 btn btn-danger" id="button" onclick="back()">Back</button>
+    </center>
+
+    <script>
+        score1 = localStorage.getItem('Player 1');
+        score2 = localStorage.getItem('Player 2');
+        function check(){
+            document.getElementById('P1score').innerHTML = score1;
+            document.getElementById('P2score').innerHTML = score2;
+            if (score1 < 10){
+                document.getElementById('P1score').innerHTML = '0' + score1;
+            }
+            if (score2 < 10){
+                document.getElementById('P2score').innerHTML = '0' + score2;
+            }
+            if (score1 > score2){
+                alert('Player 1 Won!');
+            } else if (score1 < score2){
+                alert('Player 2 Won!');
+            } else {
+                alert('This is a draw!');
+            }
+        }
+        function back(){
+            window.location = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
